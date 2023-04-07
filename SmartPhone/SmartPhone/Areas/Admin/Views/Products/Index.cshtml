@@ -1,0 +1,113 @@
+﻿@model IEnumerable<SmartPhone.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<style>
+    .btn-create a {
+        padding: 5px;
+        color: #16b05b;
+        text-decoration: none;
+        border: 1px solid #16b05b;
+        border-radius: 5px;
+    }   
+    .btn-create a:hover{
+        color:white;
+        background-color: #16b05b;
+    }
+</style>
+
+<h2>Danh sách sản phẩm</h2>
+
+<p class="btn-create">
+    @Html.ActionLink("Thêm mới sản phẩm", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShortDesc)
+        </th>
+        <th>
+            Mô tả sản phẩm
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Khuyến mãi
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Thumb)
+        </th>
+        <th>
+            Video
+        </th>
+        <th>
+            Ngày thêm
+        </th>
+        <th>
+            Bán chạy nhất
+        </th>
+        <th>
+        <th>
+            @Html.DisplayNameFor(model => model.Active)
+        </th>
+        <th>
+            Đơn vị
+        </th>
+        <th>
+            Hãng điện thoại
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelitem => item.ProductID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProductName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Video)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCreated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BestSellers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Active)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnitslnStock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.CatName)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.ProductID }) |
+            @Html.ActionLink("Chi tiết sản phẩm", "Details", new { id=item.ProductID }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.ProductID })
+        </td>
+    </tr>
+}
+
+</table>

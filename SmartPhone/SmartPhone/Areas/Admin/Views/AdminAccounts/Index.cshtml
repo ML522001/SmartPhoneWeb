@@ -1,0 +1,84 @@
+﻿@model IEnumerable<SmartPhone.Models.Account>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<style>
+    .btn-create a {
+        padding: 5px;
+        color: #16b05b;
+        text-decoration: none;
+        border: 1px solid #16b05b;
+        border-radius: 5px;
+    }   
+    .btn-create a:hover{
+        color:white;
+        background-color: #16b05b;
+    }
+</style>
+
+<h2>Danh sách tài khoản</h2>
+
+<p class="btn-create">
+    @Html.ActionLink("Tạo tài khoản", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <a>ID</a>
+        </th>
+        <th>
+            <a>Tên tài khoản</a>
+        </th>
+        <th>
+            <a>Email</a>
+        </th>
+        <th>
+            <a>Số điện thoại</a>
+        </th>
+        <th>
+            <a>Quyền truy cập</a>
+        </th>
+        <th>
+            <a>Hoạt động</a>
+        </th>
+        <th>
+            <a>Lần cuối đăng nhập</a>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastLogin)
+            </td>
+            <td>
+                @Html.ActionLink("Xóa tài khoản", "Delete", new { id = item.AccountID })
+            </td>
+        </tr>
+    }
+</table>
+
+
+

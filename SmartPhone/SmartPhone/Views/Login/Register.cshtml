@@ -1,0 +1,71 @@
+﻿@model SmartPhone.Models.Account
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="~/Content/RegisterStyle.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="form-registration">
+        @using (Html.BeginForm("Register", "Login", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table>
+                <tr class="title-form" style="text-align:center;">
+                    <th colspan="2">Đăng kí</th>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Họ và tên")</td>
+                    <td>@Html.TextBoxFor(model => model.FullName, new { style = "width:100%" })</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(model => model.FullName)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Email")</td>
+                    <td>@Html.TextBoxFor(model => model.Email, new { style = "width:100%" })</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(model => model.Email)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Số điện thoại")</td>
+                    <td>@Html.TextBoxFor(model => model.Phone)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Mật khẩu")</td>
+                    <td>@Html.PasswordFor(model => model.Password)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(model => model.Password)</td>
+                </tr>
+                <tr>
+                    <td>@Html.Label("Xác nhận mật khẩu")</td>
+                    <td>@Html.PasswordFor(model => model.PasswordConfirm)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(model => model.PasswordConfirm)</td>
+                </tr>
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input class="btn btn-primary" type="submit" value="Đăng kí" />
+                        <input class="btn btn-primary" type="reset" value="Reset" />
+                        <a class="btn btn-primary" href="@Url.Action("Index","Login")">Đăng nhập</a>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿body {
+    margin:0;
+}
+.field-validation-error {
+    color: #ff0000;
+}
+#form-registration {
+    font-size:20px;
+    position: absolute;
+    top: 20%;
+    left: 39%;
+    border: 1px solid#ccc;
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+table{
+    width:500px;
+}
+
+.title-form{
+    text-align:center;
+    font-size:35px;
+}
+
+
+
+

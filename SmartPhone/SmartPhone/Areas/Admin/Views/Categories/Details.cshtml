@@ -1,0 +1,123 @@
+﻿@model SmartPhone.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CatName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Levels)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Levels)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ordering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Published)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Published)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Thumb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thumb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetaDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetaKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetaKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cover)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cover)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SchemaMarkup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SchemaMarkup)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CatID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

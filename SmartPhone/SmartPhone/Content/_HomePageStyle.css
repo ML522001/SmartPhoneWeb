@@ -1,0 +1,21 @@
+﻿body {
+}
+.header-navbar {
+    padding: 10px 10%;
+    background-color: #E0052B;
+}
+.navbar-first{
+    display:flex;
+}
+.name-brand {
+    text-decoration: none;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+}
+.butt-icon {
+    padding:10px;
+    color:black;
+    text-decoration:none;
+    font-size:20px;
+}

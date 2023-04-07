@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SmartPhone.Models.Role>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>Quyền truy cập</h2>
+
+<p>
+    @Html.ActionLink("Tạo mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Tên quyền truy cập</th>
+        <th>Mô tả</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Cập nhật", "Edit", new { id = item.RoleID }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.RoleID }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.RoleID })
+            </td>
+        </tr>
+    }
+
+</table>
+

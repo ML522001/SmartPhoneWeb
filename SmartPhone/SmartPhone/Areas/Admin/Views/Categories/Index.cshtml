@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SmartPhone.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<style>
+    .btn-create a {
+        padding: 5px;
+        color: #16b05b;
+        text-decoration: none;
+        border: 1px solid #16b05b;
+        border-radius: 5px;
+    }   
+    .btn-create a:hover{
+        color:white;
+        background-color: #16b05b;
+    }
+    td a {
+        padding: 5px;
+        color: #16b05b;
+        text-decoration: none;
+        border: 1px solid #16b05b;
+        border-radius: 5px;
+    }
+    td a:hover{
+        color:white;
+        background-color: #16b05b;
+    }
+</style>
+<h2>Danh sách thương hiệu</h2>
+
+<p class="btn-create">
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <a>Tên thương hiệu</a>
+        </th>
+        <th>
+            <a>Mô tả</a>
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CatName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Cập nhật", "Edit", new { id=item.CatID }) 
+            @Html.ActionLink("Xóa", "Delete", new { id=item.CatID })
+        </td>
+    </tr>
+}
+
+</table>

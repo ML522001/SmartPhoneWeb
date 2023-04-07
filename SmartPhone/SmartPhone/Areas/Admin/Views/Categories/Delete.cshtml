@@ -1,0 +1,48 @@
+﻿@model SmartPhone.Models.Category
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+<style>
+    input {
+        padding: 5px;
+        color: #16b05b;
+        text-decoration: none;
+        border: 1px solid #16b05b;
+        border-radius: 5px;
+    }
+    input {
+        color: white;
+        background-color: #16b05b;
+    }
+</style>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            <a>Tên thương hiệu</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatName)
+        </dd>
+
+        <dt>
+            <a>Mô tả</a>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay tại", "Index")
+        </div>
+    }
+</div>
