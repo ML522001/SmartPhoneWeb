@@ -1,0 +1,82 @@
+﻿@model PhoneOnlineWeb.Models.User
+@{
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<div id="form-register">
+    <div>
+        @using (Html.BeginForm("Register", "Login", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <table>
+                <tr class="title-form">
+                    <th colspan="2">Đăng ký</th>
+                </tr>
+                <tr>
+                    <td>Tên</td>
+                    <td>@Html.TextBoxFor(m => m.FirstName, new { style = "width:100%" })</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(m => m.FirstName)</td>
+                </tr>
+
+                <tr>
+                    <td>Họ</td>
+                    <td>@Html.TextBoxFor(m => m.LastName, new { style = "width:100%" })</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(m => m.LastName)</td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td>@Html.TextBoxFor(m => m.Email, new { style = "width:100%" })</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(m => m.Email)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        @if (ViewBag.error != null)
+                        {
+                            <span class="field-validation-error">@ViewBag.error</span>
+                        }
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Số điện thoại</td>
+                    <td>@Html.TextBoxFor(m => m.Phone)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(m => m.Phone)</td>
+                </tr>
+
+                <tr>
+                    <td>Mật khẩu</td>
+                    <td>@Html.PasswordFor(m => m.Password)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(m => m.Password)</td>
+                </tr>
+
+                <tr>
+                    <td>Nhập lại mật khẩu</td>
+                    <td>@Html.PasswordFor(m => m.ConfirmPassword)</td>
+                </tr>
+                <tr>
+                    <td colspan="2">@Html.ValidationMessageFor(m => m.ConfirmPassword)</td>
+                </tr>
+
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <input class="btn btn-primary" type="submit" value="Đăng ký" />
+                        <a class="btn btn-primary" href="@Url.Action("Index","Login")">Đăng nhập</a>
+                    </td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>

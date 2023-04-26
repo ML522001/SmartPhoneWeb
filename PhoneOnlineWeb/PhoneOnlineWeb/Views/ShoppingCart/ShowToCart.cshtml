@@ -1,0 +1,62 @@
+﻿@model PhoneOnlineWeb.Models.Cart
+
+@{
+    ViewBag.Title = "ShowToCart";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<h2>ShowToCart</h2>
+@if (Model != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tên sản phẩm</th>
+                <th>Hình ảnh</th>
+                <th>Giá</th>
+                <th>Số lượng</th>
+                <th>Tổng</th>
+                <th>Xáo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                double total = Convert.ToDouble(item._shopping_product.UnitPrice.Value * item._shopping_quantity);
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => item._shopping_product.NameProduct)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item._shopping_product.Images)" style="width:100px;height:100px;" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(model => item._shopping_product.UnitPrice)
+                    </td>
+                    <td>
+                        @using (Html.BeginForm("Update_Quantity_Cart", "ShoppingCart"))
+                        {
+                            <input type="hidden" value="@item._shopping_product.IDProduct" name="ID_Product" />
+                            <input type="number" value="@item._shopping_quantity" name="Quantity" />
+                            <input type="submit" value="Update Quantity" />
+                        }
+                    </td>
+                    <td>
+                        Total: @total
+                    </td>
+                    <td>
+                        <a href="/ShoppingCart/RemoveCart/@item._shopping_product.IDProduct">Gỡ</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5" style="text-align:right;">Tổng tiền: @Model.Total_Money()</td>
+            </tr>
+        </tfoot>
+    </table>
+    <a href="@Url.Action("Index","Home")">
+        Tiếp tục mua hàng
+    </a>
+}

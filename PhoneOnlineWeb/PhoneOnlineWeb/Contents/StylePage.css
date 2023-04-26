@@ -1,0 +1,286 @@
+﻿body {
+    padding: 0;
+    margin: 0;
+}
+
+.field-validation-error {
+    color: red;
+}
+
+#form-register {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin: 80px 0 410px 0;
+    padding: 10px 10px;
+}
+form{
+    display:unset;
+    justify-content:center;
+}
+table {
+    width: 500px;
+}
+
+.title-form {
+    text-align: center;
+    font-size: 30px;
+}
+
+/*SlideShow*/
+/* Slideshow container */
+.slideshow-container {
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 2.0s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
+    }
+}
+
+
+/*footer*/
+
+footer {
+    position: relative;
+    bottom: 0;
+}
+
+footer .name-page:hover {
+    color: #dff;
+    cursor: pointer;
+}
+
+
+@media (max-height:800px) {
+    footer {
+        position: static;
+    }
+
+    header {
+        padding-top: 40px;
+    }
+}
+
+.footer-distributed {
+    background-color: #16171c;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font: bold 16px sans-serif;
+    padding: 50px 16% 50px 16%;
+    margin-top: 0;
+    position: center;
+}
+
+    .footer-distributed .footer-left, .footer-distributed .footer-centre, .footer-distributed .footer-right {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .footer-distributed .footer-left {
+        width: 31%;
+        position: center;
+    }
+        
+        .footer-distributed .footer-left i {
+            color: #c51818;
+            font-size: 35px;
+            margin: 0;
+        }
+
+    .footer-distributed .name-page {
+        color: white;
+        font-size: 35px;
+        font-family: 'Black Ops One', cursive !important;
+        align-items: center;
+    }
+
+    .footer-distributed .footer-link {
+        color: white;
+        margin: 20px 0 12px;
+    }
+
+        .footer-distributed .footer-link a {
+            display: inline-block;
+            line-height: 1.8;
+            text-decoration: none;
+            color: inherit;
+        }
+
+    .footer-distributed .footer-name-page {
+        color: darkgrey;
+        font-size: 14px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    .footer-distributed .footer-centre {
+        width: 39%;
+        position: center;
+    }
+
+        .footer-distributed .footer-centre i {
+            background-color: #16171c;
+            color: white;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 0 8px;
+            vertical-align: middle;
+        }
+
+            .footer-distributed .footer-centre i.fa-envelope {
+                font-size: 17px;
+                line-height: 38px;
+            }
+
+        .footer-distributed .footer-centre p {
+            display: inline-block;
+            color: white;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+            .footer-distributed .footer-centre p span {
+                display: block;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 2;
+            }
+
+            .footer-distributed .footer-centre p a {
+                color: #ffffff;
+                text-decoration: none;
+            }
+
+    .footer-distributed .footer-right {
+        width: 29%;
+        position: center;
+        top: 2rem;
+    }
+
+    .footer-distributed .footer-name-page-about {
+        line-height: 20px;
+        color: darkgray;
+        font-size: 13px;
+        position: center;
+        font-weight: normal;
+    }
+
+        .footer-distributed .footer-name-page-about span {
+            display: block;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+    .footer-distributed .footer-icons {
+        margin-top: 15px;
+    }
+
+        .footer-distributed .footer-icons a {
+            display: inline-block;
+            color: white;
+            width: 35px;
+            height: 35px;
+            cursor: pointer;
+            background-color: black;
+            border-radius: 2px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 35px;
+            margin-right: 1px;
+            margin-bottom: 5px;
+        }
+
+            .footer-distributed .footer-icons a:hover {
+                background-color: cornflowerblue;
+            }
+
+.footer-link a:hover {
+    color: #ff0000;
+}
+
+@media(max-width:880px) {
+    .footer-distributed .footer-left, .footer-distributed .footer-centre, .footer-distributed .footer-right {
+        display: block;
+        width: 100%;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+
+        .footer-distributed .footer-centre i {
+            margin-left: 0;
+        }
+}
+
+#backtop {
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: none;
+    background: #c51818;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}

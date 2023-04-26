@@ -1,0 +1,70 @@
+﻿@model PhoneOnlineWeb.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+
+
+<div style="padding:0 35%;">
+    <h2>Chi tiết sản phẩm</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Tên sản phẩm
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NameProduct)
+            </dd>
+
+            <dt>
+                Giá
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UnitPrice)&nbsp;₫
+            </dd>
+
+            <dt>
+                Hình ảnh
+            </dt>
+
+            <dd>
+                <img src="@Url.Content(Model.Images)" style="height:200px;width:200px;margin:10px;" />
+            </dd>
+
+            <dt>
+                Ngày thêm
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ProductDate)
+            </dd>
+
+            <dt>
+                Mô tả
+            </dt>
+
+            <dd style="width:500px;">
+                @Html.DisplayFor(model => model.Descriptions)
+            </dd>
+
+            <dt>
+                Danh mục
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.NameCategory)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.IDProduct }) |
+        @Html.ActionLink("Quay lại", "Index")
+    </p>
+</div>
+

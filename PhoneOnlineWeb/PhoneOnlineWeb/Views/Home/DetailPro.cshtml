@@ -1,0 +1,19 @@
+﻿@model PhoneOnlineWeb.Models.Product
+@{
+    ViewBag.Title = "DetailPro";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<h2>DetailPro</h2>
+
+<div style="display:flex;border-bottom:1px solid #808080;margin-bottom:20px;">
+    <div style="padding: 10px 100px 10px 10px;">
+        <img src="@Url.Content(Model.Images)" style="height:200px;" />
+    </div>
+    <div style="padding:10px;">
+        <h1 style="color:#2c4bdc">@Html.DisplayFor(model => model.NameProduct)</h1>
+
+        <p style="color:red;font-weight:bold;">@Html.DisplayFor(model => model.UnitPrice) VNĐ</p>
+    </div>
+</div>
+

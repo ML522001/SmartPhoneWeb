@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="~/Contents/StylePage.css" rel="stylesheet" />
+    <script src="~/Scripts/JScript.js"></script>
+</head>
+<body>
+    <!--Menu-->
+    <div class="menu">
+        <nav class="navbar navbar-inverse" style="padding:0 16%;position:fixed;width:100%;top:0;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Categories">SMARTPHONE</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/Users">Trang chủ</a></li>
+                        <li><a href="/Users">Quản lí người dùng</a></li>
+                        <li><a href="/Products">Sản phẩm</a></li>
+                        <li><a href="/Categories">Danh mục</a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/Login/Register"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                        <li><a href="/Login/Index"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                        <li><a href="@Url.Action("Logout","Login")">Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div style="padding:80px 17%;">
+        @RenderBody()
+    </div>
+    <!--footer-->
+    <div class="footer">
+        &copy; 2023 Allright.
+    </div>
+</body>
+</html>

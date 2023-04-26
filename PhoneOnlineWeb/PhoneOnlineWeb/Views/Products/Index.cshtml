@@ -1,0 +1,97 @@
+﻿@model IEnumerable<PhoneOnlineWeb.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+
+<style>
+    tr th {
+        text-align: center;
+    }
+
+    td a {
+        background-color: #d3d3d3;
+        border-radius: 5px;
+        border: 1px solid #d3d3d3;
+        padding: 10px;
+        color: black;
+    }
+
+        td a:hover {
+            border-radius: 5px;
+            background-color: black;
+            text-decoration: none;
+            color: white;
+        }
+</style>    
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Tên sản phẩm
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+        <th>
+            Ngày thêm
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th style="width:90px;">
+            Danh mục
+        </th>
+        <th>
+            Số lượng
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td style="width:100px;text-align:center">
+                @Html.DisplayFor(modelItem => item.IDProduct)
+            </td>
+            <td style="width:100px;">
+                @Html.DisplayFor(modelItem => item.NameProduct)
+            </td>
+            <td style="width:100px;">
+                @Html.DisplayFor(modelItem => item.UnitPrice)&nbsp;₫
+            </td>
+            <td style="width:100px;">
+                <img src="@Url.Content(item.Images)" style="height:100px;width:100px;margin:10px;" />
+            </td>
+            <td style="width:90px;">
+                @Html.DisplayFor(modelItem => item.ProductDate)
+            </td>
+            
+            <td style="width:400px;">
+                @Html.DisplayFor(modelItem => item.Descriptions)
+            </td>
+            <td style="width:100px;text-align:center;">
+                @Html.DisplayFor(modelItem => item.Category.NameCategory)
+            </td>
+            <td style="width:100px;text-align:center;">
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td style="width:370px; margin-top:10px;">
+                @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.IDProduct })
+
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.IDProduct })
+
+                @Html.ActionLink("Xóa", "Delete", new { id = item.IDProduct })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<PhoneOnlineWeb.Models.User>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Quản lí người dùng</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Họ
+        </th>
+        <th>
+            Tên
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Số điện thoại
+        </th>
+        <th>
+            Địa chỉ
+        </th>
+        <th>
+            Ảnh đại diện
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.IDUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AddressUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUser)
+        </td>
+        <td>
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.IDUser }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.IDUser })
+        </td>
+    </tr>
+}
+
+</table>

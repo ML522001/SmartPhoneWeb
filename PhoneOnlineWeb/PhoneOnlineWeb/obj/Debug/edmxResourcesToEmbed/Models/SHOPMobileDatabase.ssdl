@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SHOPMobileDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categories">
+    <Key>
+      <PropertyRef Name="IDCategory" />
+    </Key>
+    <Property Name="IDCategory" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCategory" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CodeCus" />
+    </Key>
+    <Property Name="IDCus" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CodeCus" Type="int" Nullable="false" />
+    <Property Name="Email_Cus" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address_Cus" Type="nvarchar" MaxLength="100" />
+    <Property Name="Phone_Cus" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SHOPMobileDatabase.dbo.OrderDetail' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrderDetail">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IDOrder" Type="int" />
+    <Property Name="IDProduct" Type="int" />
+    <Property Name="UnitPriceSale" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="IDOrder" />
+    </Key>
+    <Property Name="IDOrder" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="date" />
+    <Property Name="Descriptions" Type="nvarchar(max)" />
+    <Property Name="Code_Cus" Type="int" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="IDProduct" />
+    </Key>
+    <Property Name="IDProduct" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameProduct" Type="nvarchar" MaxLength="50" />
+    <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Images" Type="nvarchar" MaxLength="100" />
+    <Property Name="ProductDate" Type="date" />
+    <Property Name="Available" Type="nvarchar" MaxLength="50" />
+    <Property Name="IDCategory" Type="int" />
+    <Property Name="Descriptions" Type="nvarchar(max)" />
+    <Property Name="Quantity" Type="int" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="Phone" Type="varchar" MaxLength="12" />
+    <Property Name="AddressUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="ImageUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__OrderDeta__IDOrd__571DF1D5">
+    <End Role="Orders" Type="Self.Orders" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Orders">
+        <PropertyRef Name="IDOrder" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IDOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__OrderDeta__IDPro__5812160E">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="OrderDetail" Type="Self.OrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="IDProduct" />
+      </Principal>
+      <Dependent Role="OrderDetail">
+        <PropertyRef Name="IDProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Orders__Code_Cus__5535A963">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CodeCus" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="Code_Cus" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Products__IDCate__4D94879B">
+    <End Role="Categories" Type="Self.Categories" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categories">
+        <PropertyRef Name="IDCategory" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="IDCategory" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SHOPMobileDatabaseModelStoreContainer">
+    <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderDetail" EntityType="Self.OrderDetail" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrderDetail].[ID] AS [ID], 
+    [OrderDetail].[IDOrder] AS [IDOrder], 
+    [OrderDetail].[IDProduct] AS [IDProduct], 
+    [OrderDetail].[UnitPriceSale] AS [UnitPriceSale], 
+    [OrderDetail].[Quantity] AS [Quantity]
+    FROM [dbo].[OrderDetail] AS [OrderDetail]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__OrderDeta__IDOrd__571DF1D5" Association="Self.FK__OrderDeta__IDOrd__571DF1D5">
+      <End Role="Orders" EntitySet="Orders" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__OrderDeta__IDPro__5812160E" Association="Self.FK__OrderDeta__IDPro__5812160E">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="OrderDetail" EntitySet="OrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Orders__Code_Cus__5535A963" Association="Self.FK__Orders__Code_Cus__5535A963">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Products__IDCate__4D94879B" Association="Self.FK__Products__IDCate__4D94879B">
+      <End Role="Categories" EntitySet="Categories" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

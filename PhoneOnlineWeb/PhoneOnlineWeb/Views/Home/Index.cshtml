@@ -1,0 +1,154 @@
+﻿@model IEnumerable<PhoneOnlineWeb.Models.Product>
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/_LayoutPage.cshtml";
+}
+
+<head>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.1/jquery.validate.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/cs/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/Contents/StylePage.css" rel="stylesheet" />
+</head>
+<style>
+    .list-select-name {
+        display: flex;
+        float: right !important;
+        margin-top:20px;
+    }
+    .list-select-name li {
+        text-align:center;
+        list-style: none;
+        margin:0 5px;
+        
+    }
+        .list-select-name li:hover {
+        }
+        .list-select-name li a {
+            border-radius: 10px;
+            padding: 10px;
+            background-color: #e4e4e4;
+            color: #484848;
+            text-decoration: none;
+        }
+            .list-select-name li a:hover {
+                background-color: #484848;
+                color: #e4e4e4;
+            }
+    
+    .card {
+        padding:10px;
+        margin:10px;
+        max-height:323.59px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2)
+    }
+</style>
+<div>
+    <div style="padding:80px 0 20px 0;">
+        <div class="slideshow-container" style="border-radius:10px;box-shadow:0 4px 8px 0 rgba(0,0,0,0.2)">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 4</div>
+                <img src="~/Contents/Images/SlideShow1.png" style="width: 100%; height: 400px; border-radius: 10px;">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 4</div>
+                <img src="~/Contents/Images/SlideShow2.png" style="width: 100%; height: 400px; border-radius: 10px; ">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 4</div>
+                <img src="~/Contents/Images/SlideShow3.png" style="width: 100%; height: 400px; border-radius: 10px; ">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 4</div>
+                <img src="~/Contents/Images/SlideShow4.png" style="width: 100%; height: 400px; border-radius: 10px; ">
+            </div>
+
+        </div>
+        <br />
+
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <br />
+        <div>
+            <img style="border-radius:10px;" src="https://cdn2.cellphones.com.vn/1200x75,webp,q100/https://dashboard.cellphones.com.vn/storage/banner-special-desktop-pkchaohe.png" />
+        </div>
+        <br />
+        <div style="">
+            <div style="display:flex;">
+                <h2 style="font-weight:bold;padding-right:293px;">ĐIỆN THOẠI NỔI BẬT NHẤT</h2>
+                <ul class="list-select-name">
+                    <li>
+                        <a>Apple</a>
+                    </li>
+                    <li>
+                        <a>Samsung</a>
+                    </li>
+                    <li>
+                        <a>OPPO</a>
+                    </li>
+                    <li>
+                        <a>Xiaomi</a>
+                    </li>
+                    <li>
+                        <a>ASUS</a>
+                    </li>
+                    <li>
+                        <a>Xem tất cả</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="row" style="padding-top:20px;">
+                @foreach (var m in Model)
+                {
+                    <div class="col-sm-3" style="height:350px;">
+                        <div class="card" style="width: 280px;height:340px; text-align: center;">
+                            <a href="@Url.Action("DetailPro","Home",new { id = m.IDProduct})"><img class="card-img-top" src="@Url.Content(m.Images)" alt="Card image" style="height:200px;"></a>
+                            <div class="card-body">
+                                <h4 class="card-title">@m.NameProduct</h4>
+                                <p class="card-text" style="color: #d0021c;font-weight:bold;font-size:15px;">@m.UnitPrice&nbsp;₫</p>
+                                <a href="/ShoppingCart/AddtoCart/@m.IDProduct" class="btn btn-primary" style="background-color:#bb5299">Thêm vào giỏ hàng <i class="fa fa-cart-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+</div>
+

@@ -1,0 +1,79 @@
+﻿@model PhoneOnlineWeb.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Xóa sản phẩm</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên sản phẩm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameProduct)
+        </dd>
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnitPrice)&nbsp;₫
+        </dd>
+
+        <dt>
+            Hình ảnh
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Images)
+        </dd>
+
+        <dt>
+            Ngày thêm
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductDate)
+        </dd>
+
+        <dt>
+            Mô tả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriptions)
+        </dd>
+
+        <dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            Danh mục
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category.NameCategory)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
+        </div>
+    }
+</div>

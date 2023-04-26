@@ -1,0 +1,58 @@
+﻿@model PhoneOnlineWeb.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/_LayoutPageAdmin.cshtml";
+}
+
+<h2>Thông tin người dùng</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Họ và Tên
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName) @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            Số điện thoại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            Địa chỉ
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressUser)
+        </dd>
+
+        <dt>
+            Ảnh đại diện
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUser)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Xóa", "Delete", new { id = Model.IDUser }) |
+    @Html.ActionLink("Quay lại", "Index")
+</p>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="~/Contents/StylePage.css" rel="stylesheet" />
+    <script src="~/Scripts/JScript.js"></script>
+</head>
+<body>
+    <!--Menu-->
+    <div class="menu">
+        <nav class="navbar navbar-inverse" style="padding:0 16%;width:100%;top:0;position:fixed;z-index:1;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/Home">SMARTPHONE</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="/Home">Trang chủ</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Danh mục<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">IPhone</a></li>
+                                <li><a href="#">Samsung</a></li>
+                                <li><a href="#">OPPO</a></li>
+                                <li><a href="#">Xiaomi</a></li>
+                                <li><a href="#">ASUS</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                             <a href="/ShoppingCart/ShowToCart">
+                                <i class="fa fa-cart-shopping" style="font-size:20px;"></i>
+                                @Html.Action("BagCart", "ShoppingCart")
+                            </a>
+                        </li>
+                        <li><a href="/Login/Register"><span class="glyphicon glyphicon-user"></span> Đăng ký</a></li>
+                        <li><a href="/Login/Index"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div style="padding:0 18.5%;">
+        @RenderBody()
+    </div>
+    <!--footer-->
+    <footer class="footer-distributed">
+        <div class="footer-left">
+            <a class="navbar-brand" href="/Home" style="padding:0;">SMARTPHONE</a>
+            
+
+            <p class="footer-link">
+                <a href="Index.html">Trang chủ</a>
+                |
+                <a href="Product.html">Sản phẩm</a>
+                |
+                <a href="News.html">Tin tức</a>
+                |
+                <a href="Contact.html">Liên hệ</a>
+            </p>
+
+            <p class="footer-name-page">Copyright 2021 <strong>NIGHT HOWLER </strong>All right reserved</p>
+        </div>
+
+        <div class="footer-centre">
+            <div class="">
+                <i class="fa fa-map-marker"></i>
+                <p><span>828 Sư Vạn Hạnh, Phường 13, Quận 10, TP. Hồ Chí Minh</span></p>
+            </div>
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>111-222-3333</p>
+            </div>
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="#">xyz@gmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-right">
+            <p class="footer-name-page-about">
+                <span>About the page</span>
+                <strong>NIGHT HOWLER</strong> là trang web bán xe phân khối lớn tại Việt Nam.
+            </p>
+            <div class="footer-icons">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
